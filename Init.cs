@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public class Init : MonoBehaviour {
-   public GameObject prefab;
+   public GameObject prefab; // GameObjects specified through the interface in the engine
    public GameObject player;
    public PlayerSprite[] t1sprites;
    public PlayerSprite[] t2sprites;
@@ -11,33 +11,33 @@ public class Init : MonoBehaviour {
    {
        for (int x = 0; x < 10; x++) {
            for (int z = 0; z < 10; z++) {
-               Instantiate(prefab, new Vector3(x, 0, z), Quaternion.identity);
+               Instantiate(prefab, new Vector3(x, 0, z), Quaternion.identity); // Create ground tiles
            }
        }
 
-       t1sprites = new PlayerSprite[4];
+       t1sprites = new PlayerSprite[4]; // Initialization, 4 sprites per tean
        t2sprites = new PlayerSprite[4];
 
        for (int i = 0; i < t1sprites.Length; i++) {
                t1sprites[i] = PlayerSprite.inst(i / 2, (float)0.9, 0);
        }
+      
+      /*
+        Formerly:
+        
+        for (int i = 0; i < t1sprites.length; i++) {
+            t1sprites[i] = new PlayerSprite();
+            t1sprites[i].inst(i * 2, (float)0.9, 0);
+        }
+         
+      */
 
         for (int i = 0; i < t2sprites.Length; i++) {
                t1sprites[i] = PlayerSprite.inst(i / 2, (float)0.9, 0);
        }
-
-        // for (int i = 0, x = 0; i < p.Length && x <= 8; i++, x += 2) {
-        //         p[i] = new Player(x, 1, 0);
-        //         Instantiate(player, p[i].vector, Quaternion.identity);
-        // }
         
    }
     private async void Update() {
-        // if (Input.GetKeyDown(KeyCode.W)) {
-        //         p[2].vector.Set(p[2].vector.x, p[2].vector.y, p[2].vector.z + 1);
-        //         Destroy(p[2]);
-                
-        //     }
 
 
             // // RUN THROUGH FULL TEAM ONE AT A TIME
